@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <link
+    rel="preload"
+    as="style"
+    href="{% static 'css/pu_results.css' %}"
+    onload="this.rel = 'stylesheet'"
+    />
+
+    <div class="pu_results">
+        <div class="pu_select">
+            <h3>Select Polling Unit</h3>
+
+            <select name="polling_units" id="polling_units" class="polling_units">
+                {% for polling_unit_id in polling_units_id %}
+                    <option value="{{polling_unit_id}}" class="unit_id">Polling Unit {{polling_unit_id}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="pole_counts">
+            <div class="pole_table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>
+                                Party
+                            </th>
+                            <th>
+                                Result
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for result in results %}
+                        <tr class="_{{result.pu_id}} remove_display result">
+                            <td>
+                                {{result.party_result.party_name}}
+                            </td>
+                            <td>
+                                {{result.party_result.party_score}}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/pu_results.js' %}"></script>
+{% endblock %}

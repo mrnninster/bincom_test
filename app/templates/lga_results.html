@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <link
+    rel="preload"
+    as="style"
+    href="{% static 'css/pu_results.css' %}"
+    onload="this.rel = 'stylesheet'"
+    />
+
+    <div class="pu_results">
+        <div class="pu_select">
+            <h3>Select Local Government</h3>
+
+            <select name="lgas" id="lgas" class="lgas">
+                {% for LGA in LGAS %}
+                    <option value="{{ LGA.0 }}" class="unit_id">{{ LGA.1 }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="pu_select">
+            <h3> Total Pole Count </h3>
+
+            <div id="pole_count">
+                000
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/lga_results.js' %}"></script>
+{% endblock %}

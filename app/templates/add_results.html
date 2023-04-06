@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <link
+    rel="preload"
+    as="style"
+    href="{% static 'css/add_result.css' %}"
+    onload="this.rel = 'stylesheet'"
+    />
+
+    <form method="POST" action="{% url 'add_result' %}">
+
+    {% csrf_token %}
+
+    {{ form.non_field_errors }}
+
+    <fieldset>
+        {{form.polling_unit_uniqueid.label_tag}}
+        {{form.polling_unit_uniqueid}}
+        {{form.polling_unit_uniqueid.errors}}
+    </fieldset>
+
+    <fieldset>
+        {{form.party_abbreviation.label_tag}}
+        {{form.party_abbreviation}}
+        {{form.party_abbreviation.errors}}
+    </fieldset>
+
+    <fieldset>
+        {{form.party_score.label_tag}}
+        {{form.party_score}}
+        {{form.party_score.errors}}
+    </fieldset>
+
+    <fieldset>
+        {{form.entered_by_user.label_tag}}
+        {{form.entered_by_user}}
+        {{form.entered_by_user.errors}}
+    </fieldset>
+
+    <fieldset>
+        <button>
+            Submit
+        </button>
+    </fieldset>
+
+    </form>
+
+{% endblock %}

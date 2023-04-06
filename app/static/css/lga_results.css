@@ -1,0 +1,40 @@
+.pu_results{
+    width: 100%;
+    height: 100%;
+}
+
+.pu_select{
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pole_counts{
+    width: 100%;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+    text-align: center;
+}
+
+tbody tr:nth-child(even) {
+background-color: #979697;
+text-align: center;
+}
+  
+table{
+    width: 100%;
+    background-color: #acacac;
+    gap: 3px;
+}
+
+td {
+    padding: 5px 0;
+}
+
+.remove_display{
+    display: none;
+}
+

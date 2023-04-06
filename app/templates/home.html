@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <link
+    rel="preload"
+    as="style"
+    href="{% static 'css/home.css' %}"
+    onload="this.rel = 'stylesheet'"
+    />
+
+    <div class="pages">
+        <ul>
+            <a href="{% url 'pu_results' %}">
+                <li>
+                    Polling Unit Results
+                </li>
+            </a>
+
+            <a href="{% url 'pu_lga_results' %}">
+                <li>
+                    LGA Results Using Polling Units
+                </li>
+            </a>
+
+            <a href="{% url 'add_result' %}">
+                <li>
+                    Add New Result
+                </li>
+            </a>
+        </ul>
+    </div>
+
+{% endblock %}
